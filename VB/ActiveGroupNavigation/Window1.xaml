@@ -1,0 +1,42 @@
+﻿<Window x:Class="ActiveGroupNavigation.Window1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="Window1" Height="300" Width="300" xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar">
+
+        <!--region #Markup-->
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <Button Name="btnFirst" Command="dxn:NavBarCommands.SetActiveGroup" CommandTarget="{Binding Path=View, ElementName=navBarControl1}" CommandParameter="{Binding ElementName=firstGroup}">First Group</Button>
+                <Button Name="btnNext" Click="button_Click">Next Group</Button>        
+                <Button Name="btnPrev" Click="button_Click">Prev Group</Button>
+                <Button Name="btnLast" Command="dxn:NavBarCommands.SetActiveGroup" CommandTarget="{Binding Path=View, ElementName=navBarControl1}" CommandParameter="{Binding ElementName=lastGroup}">Last Group</Button>
+            </StackPanel>
+            
+            <dxn:NavBarControl Name="navBarControl1">
+                <dxn:NavBarControl.View>
+                    <dxn:NavigationPaneView ActiveGroupChanged="NavigationPaneView_ActiveGroupChanged" />
+                </dxn:NavBarControl.View>
+                
+                <dxn:NavBarControl.Groups>
+                    <dxn:NavBarGroup Header="Group1" x:Name="firstGroup">
+                        <dxn:NavBarItem>Item1</dxn:NavBarItem>
+                    </dxn:NavBarGroup>
+                <dxn:NavBarGroup Header="Group2">
+                    <dxn:NavBarItem>Item1</dxn:NavBarItem>
+                    <dxn:NavBarItem>Item2</dxn:NavBarItem>
+                </dxn:NavBarGroup>
+                <dxn:NavBarGroup Header="Group3">
+                    <dxn:NavBarItem>Item1</dxn:NavBarItem>
+                    <dxn:NavBarItem>Item2</dxn:NavBarItem>
+                    <dxn:NavBarItem>Item3</dxn:NavBarItem>
+                </dxn:NavBarGroup>
+                <dxn:NavBarGroup Header="Group4" x:Name="lastGroup">
+                    <dxn:NavBarItem>Item1</dxn:NavBarItem>
+                    <dxn:NavBarItem>Item2</dxn:NavBarItem>
+                    <dxn:NavBarItem>Item3</dxn:NavBarItem>
+                    <dxn:NavBarItem>Item4</dxn:NavBarItem>
+                </dxn:NavBarGroup>
+            </dxn:NavBarControl.Groups>
+        </dxn:NavBarControl>
+        
+        </DockPanel>
+        <!--endregion #Markup-->
+
+</Window>
